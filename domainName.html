@@ -20,8 +20,7 @@ $(function(){
 		$.post("http://domainsearch.racistpanda.com",
 			{ domain: name },
 			function(data) {
-				$("#domain").append("<p>" + data.domain + "</p>")
-				$("#state").append("<p>" + data.state + "</p>" );
+				$('#domainData').append("<tr> <td>" + data.domain + "</td> <td>" + data.state + "</td> </tr>");
 				console.log(data);
 			},
 			"json"
@@ -51,6 +50,10 @@ h2 {
 
 }
 
+th {
+	font-size: 150%;
+}
+
 </style>
 
 <body>
@@ -68,25 +71,16 @@ h2 {
 	</div>
 
 	<div>
-	<table class="table table-striped">
+	<table class="table table-striped" id="domainData">
 
 		<thead>
 
-		<th>Domain</th>
-		<th>State</th>
+		<th>Domain:</th>
+		<th>State:</th>
 
 	</thead>
 
-	<tbody>
 
-		<tr>
-			<td id="domain"></td>
-			<td id="state"></td>
-		</tr>
-
-
-
-</tbody>
 	</table>
 </div>
 </div>
