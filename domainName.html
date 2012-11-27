@@ -1,0 +1,83 @@
+<html>
+
+<head>
+	<title> Find Your Domain Name
+	</title>
+
+</head>
+
+<script src="jquery-1.8.2.min.js"></script>
+
+<script src="bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+
+	$("button").click(function(){
+		var name =$("input:text").val();
+		$.post("http://domainsearch.racistpanda.com",
+       { domain: name },
+       function(data) {
+       	$("#domain").append(data.domain)
+       	$("#state").append(data.state);
+         console.log(data);
+       },
+       "json"
+)
+	});
+
+});
+
+$("#container").append("<div class = 'listItem'>" + name + "</div>");
+
+</script>
+
+
+<style>
+
+div {
+	padding: 20px;
+	font-size: 120%;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	font-size: 300%;
+}
+
+h2 {
+	text-align: center;
+
+}
+div.completed {
+	text-decoration: line-through;
+}
+
+
+</style>
+
+<body>
+
+	<h1>
+		Find your Domain Name
+	</h1>
+
+	<h2> 
+		Type in your desired domain name below to see if it's available
+	</h2>
+
+
+	<p><input type="text" placeholder="Search..."></p>
+	<button>Search</button>
+
+	<div id= "domain"></div>
+	<div id="state"></div>
+
+
+
+</body>
+
+
+</html>
