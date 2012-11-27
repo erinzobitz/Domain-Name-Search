@@ -9,6 +9,7 @@
 <script src="jquery-1.8.2.min.js"></script>
 
 <script src="bootstrap.min.js"></script>
+<link href="bootstrap.min.css" rel="stylesheet" media="screen">
 
 <script type="text/javascript">
 
@@ -19,17 +20,17 @@ $(function(){
 		$.post("http://domainsearch.racistpanda.com",
 			{ domain: name },
 			function(data) {
-				$("#domain").append(data.domain)
-				$("#state").append(data.state);
+				$("#domain").append("<p>" + data.domain + "</p>")
+				$("#state").append("<p>" + data.state + "</p>" );
 				console.log(data);
 			},
 			"json"
 			)
+		$("input:text").val('');
 	});
 
 });
 
-$("#container").append("<div class = 'listItem'>" + name + "</div>");
 
 </script>
 
@@ -37,8 +38,6 @@ $("#container").append("<div class = 'listItem'>" + name + "</div>");
 <style>
 
 div {
-	padding: 20px;
-	font-size: 120%;
 	text-align: center;
 }
 
@@ -51,31 +50,46 @@ h2 {
 	text-align: center;
 
 }
-div.completed {
-	text-decoration: line-through;
-}
-
 
 </style>
 
 <body>
 
-	<h1>
-		Find your Domain Name
-	</h1>
 
-	<h2> 
-		Type in your desired domain name below to see if it's available
-	</h2>
+	<div class="hero-unit container">
+		<h1>
+			Find your Domain Name
+		</h1>
+		<h2> 
+			Type in your desired domain name below to see if it's available
+		</h2>
+			<p><input type="text" placeholder="Type a domain name..."></p>
+			<button class="btn btn-primary btn-large">Search</button>
+	</div>
+
+	<div>
+	<table class="table table-striped">
+
+		<thead>
+
+		<th>Domain</th>
+		<th>State</th>
+
+	</thead>
+
+	<tbody>
+
+		<tr>
+			<td id="domain"></td>
+			<td id="state"></td>
+		</tr>
 
 
-	<p><input type="text" placeholder="Search..."></p>
-	<button>Search</button>
 
-	<div id="domain"></div>
-	<div id="state"></div>
-
-
+</tbody>
+	</table>
+</div>
+</div>
 
 </body>
 
