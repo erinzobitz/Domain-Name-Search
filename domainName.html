@@ -17,14 +17,14 @@ $(function(){
 	$("button").click(function(){
 		var name =$("input:text").val();
 		$.post("http://domainsearch.racistpanda.com",
-       { domain: name },
-       function(data) {
-       	$("#domain").append(data.domain)
-       	$("#state").append(data.state);
-         console.log(data);
-       },
-       "json"
-)
+			{ domain: name },
+			function(data) {
+				$("#domain").append(data.domain)
+				$("#state").append(data.state);
+				console.log(data);
+			},
+			"json"
+			)
 	});
 
 });
@@ -72,7 +72,7 @@ div.completed {
 	<p><input type="text" placeholder="Search..."></p>
 	<button>Search</button>
 
-	<div id= "domain"></div>
+	<div id="domain"></div>
 	<div id="state"></div>
 
 
